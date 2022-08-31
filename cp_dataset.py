@@ -146,7 +146,7 @@ class CPDataset(data.Dataset):
         im_h = im * phead - (1 - phead)  # [-1,1], fill -1 for other parts
 
         # load pose points
-        pose_name = im_name.replace('.jpg', '_keypoints.json')
+        pose_name = im_name.replace('.png', '_keypoints.json')
         with open(osp.join(self.data_path, 'pose', pose_name), 'r') as f:
             pose_label = json.load(f)
             pose_data = pose_label['people'][0]['pose_keypoints']
