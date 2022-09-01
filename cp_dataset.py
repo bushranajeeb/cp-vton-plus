@@ -51,7 +51,7 @@ class CPDataset(data.Dataset):
         im_name = self.im_names[index]
         if self.stage == 'GMM':
             c = Image.open(osp.join(self.data_path, 'cloth', c_name))
-            cm = Image.open(osp.join(self.data_path, 'cloth-mask', c_name)).convert('L')
+            cm = Image.open(osp.join(self.data_path, 'cloth_mask', c_name)).convert('L')
         else:
             c = Image.open(osp.join(self.data_path, 'warp-cloth', im_name))    # c_name, if that is used when saved
             cm = Image.open(osp.join(self.data_path, 'warp-mask', im_name)).convert('L')    # c_name, if that is used when saved
@@ -96,11 +96,11 @@ class CPDataset(data.Dataset):
         # load parsing image
         parse_name = im_name.replace('.jpg', '.png')
         im_parse = Image.open(
-            # osp.join(self.data_path, 'image-parse', parse_name)).convert('L')
-            osp.join(self.data_path, 'image-parse-new', parse_name)).convert('L')   # updated new segmentation
+            # osp.join(self.data_path, 'image_parse', parse_name)).convert('L')
+            osp.join(self.data_path, 'image_parse_new', parse_name)).convert('L')   # updated new segmentation
         parse_array = np.array(im_parse)
         im_mask = Image.open(
-            osp.join(self.data_path, 'image-mask', parse_name)).convert('L')
+            osp.join(self.data_path, 'image_mask', parse_name)).convert('L')
         mask_array = np.array(im_mask)
 
         # parse_shape = (parse_array > 0).astype(np.float32)  # CP-VTON body shape
