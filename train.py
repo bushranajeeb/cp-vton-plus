@@ -45,8 +45,8 @@ def get_opt():
                         help='model checkpoint for initialization')
     parser.add_argument("--display_count", type=int, default=20)
     parser.add_argument("--save_count", type=int, default=5000)
-    parser.add_argument("--keep_step", type=int, default=10000)
-    parser.add_argument("--decay_step", type=int, default=100000)
+    parser.add_argument("--keep_step", type=int, default=50000)
+    parser.add_argument("--decay_step", type=int, default=50000)
     parser.add_argument("--shuffle", action='store_true',
                         help='shuffle input data')
 
